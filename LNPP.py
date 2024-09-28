@@ -12,7 +12,7 @@ def normalize(vectors):
     """对向量进行归一化"""
     norm_vectors = []
     for v in vectors:
-        norm_vectors.append(v / np.linalg.norm(v))
+        norm_vectors.append(v / np.linalg.norm(vectors))
     return np.array(norm_vectors)
 
 
