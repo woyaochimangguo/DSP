@@ -35,6 +35,14 @@ def charikar_peeling(G):
         num_nodes = G.number_of_nodes()
         return num_edges / num_nodes if num_nodes > 0 else 0
 
+    def compute_density_2(G):
+        epsilon = 1
+        p = 1 / (np.exp(epsilon) + 1)
+        no_flip_prob = 1 - p  # 不翻转的概率
+        num_edges = G.number_of_edges() * (1-p) + (G.number_of_nodes() * (G.number_of_nodes() - 1)) / 2 * p
+        num_nodes = G.number_of_nodes()
+        return num_edges / num_nodes if num_nodes > 0 else 0
+
     # Iteratively remove the node with the smallest degree
     while G.number_of_nodes() > 0:
         current_density = compute_density(G)
